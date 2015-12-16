@@ -1,0 +1,50 @@
+<div class="container">
+  <nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
+          <span class="glyphicon glyphicon-home"></span> Parking
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+        <ul class="nav navbar-nav">
+          <li class="active"><a ng-href="#">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-md-12 ng-scope">
+     <div class="panel panel-default">
+        <div class="panel-heading">Devices</div>
+        <div class="panel-body">
+          <ul class="list-inline">
+            <li>
+              <span style="cursor:pointer;height:25px;" draggable cameras='vm.cameras'><i title="camera" style="font-size:25px;" class="fa fa-video-camera"></i></span>
+            </li>
+            <li>
+              <span style="cursor:pointer;height:25px;" draggable><i title="sensor" style="font-size:25px;" class="fa fa-lightbulb-o"></i></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+     <div class="panel panel-default">
+        <div class="panel-heading">Parking</div>
+        <div class="panel-body">
+            <table style="margin:0 auto" class="garage">
+              <tr ng-repeat="row in vm.grid track by $index" style="height:60px;">
+                <td id="{{i}}-{{i}}" ng-repeat="col in row track by $index" ng-class="col.parking?'parking':''" style="width:75px;" >
+                  <div droppable table-cell="col" style="width:75px;height:60px;" ng-if="col.droppable">
+                      <i ng-if='col.camera' class="fa fa-video-camera"></i>
+                      <i ng-if='col.sensor' class="fa fa-lightbulb-o"></i>                
+                  </div>
+
+                </td>
+              </tr>
+            </table>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
