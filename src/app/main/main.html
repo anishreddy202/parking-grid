@@ -32,12 +32,29 @@
      <div class="panel panel-default">
         <div class="panel-heading">Parking</div>
         <div class="panel-body">
+            <div class="form-group" style="text-align:center" ng-if="vm.onDrop">
+              <label>Device Information</label>
+              <div class="input-group" style="margin:0 auto">
+                <input type="text" class="form-control" placeholder="Device Name" ng-model="vm.deviceInfo.name">
+              </div>
+              <br>
+              <div class="input-group" style="margin:0 auto">
+                <input type="text" class="form-control" placeholder="Device URL" ng-model="vm.deviceInfo.url">
+              </div>
+              <br>
+              <div class="input-group" style="margin:0 auto">
+               <button class="btn btn-default btn-sm" ng-click="vm.save()">Save</button>
+                <button class="btn btn-default btn-sm" ng-click="vm.cancel()">Cancel</button>
+                <button class="btn btn-default btn-sm" ng-click="vm.deleteDevice()">Delete</button>
+              </div>
+            </div>
+
             <table style="margin:0 auto" class="garage">
               <tr ng-repeat="row in vm.grid track by $index" style="height:60px;">
-                <td id="{{i}}-{{i}}" ng-repeat="col in row track by $index" ng-class="col.parking?'parking':''" style="width:75px;" >
+                <td id="{{row.$index}}-{{col.$index}}" ng-repeat="col in row track by $index" ng-class="col.parking?'parking':''" style="width:75px;" >
                   <div droppable table-cell="col" style="width:75px;height:60px;" ng-if="col.droppable">
-                      <i ng-if='col.camera' class="fa fa-video-camera"></i>
-                      <i ng-if='col.sensor' class="fa fa-lightbulb-o"></i>                
+                      <i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="fa fa-video-camera"></i>
+                      <i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')" class="fa fa-lightbulb-o"></i>                
                   </div>
 
                 </td>
