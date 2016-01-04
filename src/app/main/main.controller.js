@@ -79,26 +79,30 @@
       vm.onDrop = false;
       vm.deviceType = null;
     }
-    var x = new Array(6);
+    var x = new Array(10);
 
 
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 10; i++) {
       x[i] = buildArray(i)
     }
 
     function buildArray(row){
 
     var obj = [
-      {col: [1,2,3,4],droppable:[0,1,2,3,4,5]},
-      {col: [0,5],droppable:[0,5]},
-      {col: [0,2,3,5],droppable:[0,2,3,5]},
-      {col: [0,2,3,5],droppable:[0,2,3,5]},
-      {col: [0,2,3,5],droppable:[0,2,3,5]},
-      {col: [0,2,3,5],droppable:[0,2,3,5]}
+      {col: [1,2,3,4,5,6,7,8],droppable:[0,1,2,3,4,5,6,7,8,9]},
+      {col: [0,9],droppable:[0,9]},
+      {col: [0,9],droppable:[0,9]},
+      {col: [0,4,5,9],droppable:[0,4,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]},
+      {col: [0,4,5,9],droppable:[0,4,3,5,6,9]}
     ]
 
       var arr = [];
-      for(var i =0;i< 6;i++){
+      for(var i =0;i< 10;i++){
         var  newObj = { camera: { enable:false},sensor:{enable:false},parking:false,droppable: false, column: i, row : row};
         if(obj[row].col.indexOf(i) >= 0){
           newObj.parking = true;

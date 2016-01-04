@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container parking-grid">
   <nav class="navbar navbar-static-top navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -16,23 +16,84 @@
   </nav>
   <div class="row">
     <div class="col-md-12 ng-scope">
+     
      <div class="panel panel-default">
-        <div class="panel-heading">Devices</div>
-        <div class="panel-body">
-          <ul class="list-inline">
-            <li>
-              <span style="cursor:pointer;height:25px;" draggable cameras='vm.cameras'><i title="camera" style="font-size:25px;" class="fa fa-video-camera"></i></span>
-            </li>
-            <li>
-              <span style="cursor:pointer;height:25px;" draggable><i title="sensor" style="font-size:25px;" class="fa fa-lightbulb-o"></i></span>
-            </li>
-          </ul>
+        <div class="panel-heading">
+          <span>Parking garage map </span>
+          <a title="edit" class="glyphicon glyphicon-pencil"></a>
         </div>
-      </div>
-     <div class="panel panel-default">
-        <div class="panel-heading">Parking</div>
         <div class="panel-body">
-            <div class="form-group" style="text-align:center" ng-if="vm.onDrop">
+          <div class="section clearfix">
+            <div class="col-xs-6">
+              <form ng-if="vm.onDrop"> 
+                <div class="input-group"> 
+                  <input class="form-control" aria-label="Text input with dropdown button" type="text">
+                  <div class="input-group-btn"> 
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button> 
+                    <ul class="dropdown-menu dropdown-menu-right"> 
+                      <li><a href="#">Action</a></li> 
+                      <li><a href="#">Another action</a></li> 
+                      <li><a href="#">Another action</a></li> 
+                      <li><a href="#">Another action</a></li> 
+                    </ul> 
+                  </div> 
+                </div> 
+                <div class="col-xs-6 pr-0 pl-0">
+                  <div class="form-group form-group-name"> 
+                    <label for="exampleInputEmail1">name:</label> 
+                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                  </div>
+                  <div class="form-group form-group-ip-address"> 
+                    <label for="exampleInputEmail1">IP address:</label> 
+                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                  </div>
+                </div>
+                <div class="col-xs-6 pr-0">
+                  <div class="form-group form-group-id"> 
+                    <label for="exampleInputEmail1">ID:</label> 
+                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                  </div>
+                  <div class="form-group form-group-status"> 
+                    <label for="exampleInputEmail1">status:</label> 
+                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                  </div>
+                </div>
+                <div class="col-xs-12 padding-none">
+                  <div class="btn-wrapper pull-right">
+                    <button class="btn btn-default btn-cancel">cancel</button>
+                    <button class="btn btn-default btn-submit">submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-xs-6 add-device-wrapper">
+              <div class="inner">
+                <h4>add new device.</h4>
+                  <p>Drag and drop to a location, then edit the device details.</p>
+                  <div class="device-wrapper">
+                    <ul class="list-inline">
+                      <li>
+                        <span class="ui-draggable ui-draggable-handle" style="cursor:pointer;height:25px;" draggable="" cameras="vm.cameras"><i title="camera" class="camera"></i></span>
+                      </li>
+                      <li>
+                        <span class="ui-draggable ui-draggable-handle" style="cursor:pointer;height:25px;" draggable=""><span title="sensor" class="sensor"></span></span>
+                      </li>
+                      <li>
+                        <span class="ui-draggable ui-draggable-handle" style="cursor:pointer;height:25px;" draggable=""><!-- <i title="sensor" class="fa fa-lightbulb-o"></i> --></span>
+                      </li>
+                      <li>
+                        <span class="ui-draggable ui-draggable-handle" style="cursor:pointer;height:25px;" draggable=""><!-- <i title="sensor" class="fa fa-lightbulb-o"></i> --></span>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section clearfix">
+<!--             <div class="form-group" style="text-align:center" ng-if="vm.onDrop">
               <label>Device Information</label>
               <div class="input-group" style="margin:0 auto">
                 <input type="text" class="form-control" placeholder="Device Name" ng-model="vm.deviceInfo.name">
@@ -47,19 +108,20 @@
                 <button class="btn btn-default btn-sm" ng-click="vm.cancel()">Cancel</button>
                 <button class="btn btn-default btn-sm" ng-click="vm.deleteDevice()">Delete</button>
               </div>
-            </div>
-
+            </div> -->
             <table style="margin:0 auto" class="garage">
               <tr ng-repeat="row in vm.grid track by $index" style="height:60px;">
                 <td id="{{row.$index}}-{{col.$index}}" ng-repeat="col in row track by $index" ng-class="col.parking?'parking':''" style="width:75px;" >
-                  <div droppable table-cell="col" style="width:75px;height:60px;" ng-if="col.droppable">
+                  <div droppable table-cell="col" ng-if="col.droppable">
+                      <span class="parking-lines"></span>
+                      <span class="parking-number">a00</span>
                       <i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="fa fa-video-camera"></i>
                       <i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')" class="fa fa-lightbulb-o"></i>                
                   </div>
-
                 </td>
               </tr>
             </table>          
+          </div>
         </div>
       </div>
     </div>

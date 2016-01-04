@@ -6,6 +6,8 @@
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
+
+
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
@@ -28,15 +30,19 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
-.garage {
-	border: 2px solid;
-	border-bottom:0px;
+.container {
+  min-width: 1170px;
 }
 
-.parking {
-	background-color: #ddd;
-	border:1px solid;
-}
+// .garage {
+// 	border: 2px solid;
+// 	border-bottom:0px;
+// }
+
+// .parking {
+// 	background-color: #ddd;
+// 	border:1px solid;
+// }
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
@@ -44,3 +50,6 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
  */
 // injector
 // endinjector
+
+
+@import "../assets/scss/parking-grid";
