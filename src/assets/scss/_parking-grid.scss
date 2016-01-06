@@ -350,8 +350,9 @@
     display: block;
     background: url('../assets/images/camera.png') no-repeat;
     &.drop {
-      //position: absolute;
       margin: 0px;
+      display: inline-block;
+      position: absolute;
     }
   }
   .sensor {
@@ -362,8 +363,9 @@
     display: block;
     background: url('../assets/images/sensor.png') no-repeat;
     &.drop {
-      //position: absolute;
       margin: 0px;
+      display: inline-block;
+      position: absolute;
     }
   }
 }
