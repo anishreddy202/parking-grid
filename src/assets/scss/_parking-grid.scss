@@ -349,6 +349,10 @@
     height: 40px;
     display: block;
     background: url('../assets/images/camera.png') no-repeat;
+    &.drop {
+      //position: absolute;
+      margin: 0px;
+    }
   }
   .sensor {
     margin-left: -2px;
@@ -357,5 +361,9 @@
     height: 82px;
     display: block;
     background: url('../assets/images/sensor.png') no-repeat;
+    &.drop {
+      //position: absolute;
+      margin: 0px;
+    }
   }
 }
