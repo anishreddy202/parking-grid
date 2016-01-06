@@ -43,27 +43,27 @@
                 <div class="col-xs-6 pr-0 pl-0">
                   <div class="form-group form-group-name"> 
                     <label for="exampleInputEmail1">name:</label> 
-                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                    <input class="form-control" id="exampleInputEmail1" ng-model="vm.deviceInfo.name" type="text"> 
                   </div>
                   <div class="form-group form-group-ip-address"> 
                     <label for="exampleInputEmail1">IP address:</label> 
-                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                    <input class="form-control" id="exampleInputEmail1" ng-model="vm.deviceInfo.address" type="text"> 
                   </div>
                 </div>
                 <div class="col-xs-6 pr-0">
                   <div class="form-group form-group-id"> 
                     <label for="exampleInputEmail1">ID:</label> 
-                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                    <input class="form-control" id="exampleInputEmail1" ng-model="vm.deviceInfo.id" type="text"> 
                   </div>
                   <div class="form-group form-group-status"> 
                     <label for="exampleInputEmail1">status:</label> 
-                    <input class="form-control" id="exampleInputEmail1" placeholder="" type="email"> 
+                    <input class="form-control" id="exampleInputEmail1" ng-model="vm.deviceInfo.status" type="text"> 
                   </div>
                 </div>
                 <div class="col-xs-12 padding-none">
                   <div class="btn-wrapper pull-right">
-                    <button class="btn btn-default btn-cancel">cancel</button>
-                    <button class="btn btn-default btn-submit">submit</button>
+                    <button class="btn btn-default btn-cancel" ng-click="vm.cancel()">cancel</button>
+                    <button class="btn btn-default btn-submit" ng-click="vm.save()">submit</button>
                   </div>
                 </div>
               </form>
