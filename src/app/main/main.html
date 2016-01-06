@@ -115,8 +115,10 @@
                   <div droppable table-cell="col" ng-if="col.droppable">
                       <span class="parking-lines"></span>
                       <span class="parking-number">a00</span>
-                      <i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="fa fa-video-camera"></i>
-                      <i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')" class="fa fa-lightbulb-o"></i>                
+                      <span><i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="camera"></i></span>
+                      <span><i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')"class="sensor"></i></span>
+                      <!-- <i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="fa fa-video-camera"></i> -->
+                      <!-- <i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')" class="fa fa-lightbulb-o"></i>   -->              
                   </div>
                 </td>
               </tr>
