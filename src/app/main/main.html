@@ -113,10 +113,11 @@
               <tr ng-repeat="row in vm.grid track by $index" style="height:60px;">
                 <td id="{{row.$index}}-{{col.$index}}" ng-repeat="col in row track by $index" ng-class="col.parking?'parking':''" style="width:75px;" >
                   <div droppable table-cell="col" ng-if="col.droppable" class="dropped-icons">
+                      <span ng-if='col.camera.enable' class="icon-holder"><i ng-click="vm.showDeviceInfo(col,'camera')" class="camera drop"></i></span>
+                      <span ng-if='col.sensor.enable' class="icon-holder"><i ng-click="vm.showDeviceInfo(col,'sensor')" class="sensor drop"></i></span>
                       <span class="parking-lines"></span>
                       <span class="parking-number">a00</span>
-                      <span><i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="camera drop"></i></span>
-                      <span><i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')"class="sensor drop"></i></span>
+                      
                       <!-- <i ng-if='col.camera.enable' ng-click="vm.showDeviceInfo(col,'camera')" class="fa fa-video-camera"></i> -->
                       <!-- <i ng-if='col.sensor.enable' ng-click="vm.showDeviceInfo(col,'sensor')" class="fa fa-lightbulb-o"></i>   -->              
                   </div>
